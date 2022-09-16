@@ -1,0 +1,19 @@
+
+.grid-container{
+ display: grid;
+ grid-template-columns: repeat(6, auto);
+ grid-row: auto auto;
+ 
+}
+.header{
+grid-column: 1/7;
+background-color: blue;
+}
+.menu{
+grid-column: 1/2;
+background-color: aqua;
+}
+.main{
+grid-column: 2/7;
+background-color: red;
+}
