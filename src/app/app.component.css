@@ -1,19 +1,27 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-row: auto auto;
 
-.grid-container{
- display: grid;
- grid-template-columns: repeat(6, auto);
- grid-row: auto auto;
- 
 }
-.header{
-grid-column: 1/7;
-background-color: blue;
+
+.header {
+    grid-column: 1/7;
+    background-color: #2F2E30;
+
 }
-.menu{
-grid-column: 1/2;
-background-color: aqua;
+
+.menu {
+    grid-column: 1/2;
+    background-color: #2F2E30;
+    border-right: 1px solid white;
+    height: 100vh;
+
 }
-.main{
-grid-column: 2/7;
-background-color: red;
+
+.main {
+    grid-column: 2/7;
+    background-color: #101728;
+    height: 100vh;
+
 }

@@ -1,0 +1,14 @@
+.cursos {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+li {
+    font-size: 2rem;
+    margin-top: 2rem;
+    list-style: none;
+    color: #5CE1E6;
+    border-bottom: 1px solid white;
+}

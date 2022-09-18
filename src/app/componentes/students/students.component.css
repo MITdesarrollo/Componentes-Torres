@@ -1,0 +1,32 @@
+.contCards {
+    display: grid;
+    grid-column: repeat(4, auto);
+}
+
+.card-1 {
+    grid-column: 1/2;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.card-2 {
+    grid-column: 2/3;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.card-3 {
+    margin-top: 3rem;
+    margin-left: 3rem;
+    grid-column: 3/4;
+    margin-bottom: 2rem;
+}
+
+.card-4 {
+    margin-top: 3rem;
+    margin-left: 3rem;
+    grid-column: 4/5;
+    margin-bottom: 2rem;
+}
