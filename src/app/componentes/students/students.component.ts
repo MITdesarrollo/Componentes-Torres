@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Alumno } from 'src/app/models/alumnos';
+import { Curso } from 'src/app/models/cards';
 
 @Component({
   selector: 'app-students',
@@ -7,20 +9,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsComponent implements OnInit {
   alumno: string = '';
-  variable1:number = 0;
-  listaNombres: any[] = [
-    {nombre: 'Lilo', edad:26},
-    {nombre: 'Lolo', edad:18},
-    {nombre: 'Lalo', edad:20},
-    {nombre: 'Lulu', edad:30}
-  ] ;
+  variable1: number = 0;
 
-  llamaNombre(value:string){
+  public alumnos: Array<Alumno> = [
+    {
+      id: 1,
+      nombre: 'Lilo',
+      cursos: ['React', ' Angular']
+    },
+    {
+      id: 2,
+      nombre: 'Lolo',
+      cursos: ['React', ' Angular', ' js']
+    },
+    {
+      id: 3,
+      nombre: 'Lula',
+      cursos: ['React']
+    },
+    {
+      id: 4,
+      nombre: 'Lalo',
+      cursos: ['Js', ' Angular']
+    },
+
+  ];
+  public cursos: Array<Curso> =[
+    {
+      img: '../../../assets/images/1.png',
+      nombre:'Angular',
+      descripcion: ''
+    },
+    {
+      img: '../../../assets/images/2.png',
+      nombre:'React',
+      descripcion: ''
+    },
+    {
+      img: '../../../assets/images/3.png',
+      nombre:'JavaScript',
+      descripcion: ''
+    }
+  ]
+
+  llamaNombre(value: string) {
   }
-  agregarAlumno(nombre:string, edad:number){
-   const agregar = this.alumno;
-   this.listaNombres.push(agregar)
-  }
+
   constructor() { }
 
   ngOnInit(): void {

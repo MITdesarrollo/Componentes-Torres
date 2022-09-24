@@ -8,47 +8,24 @@
 <h1>
   <div [ngClass]=" 'alumno '"> Bienvenid@ ! {{alumno.value | titlecase}}</div>
   <ol [ngClass]="'lista'">
-    <li *ngFor="let nombre of listaNombres">
-      <div [ngClass]=" 'items' ">Nombre: {{ nombre.nombre }} - Edad: {{nombre.edad}}</div>
+    <li *ngFor="let alumno of alumnos" class="contLista">
+      <div [ngClass]=" 'items' ">Id. {{alumno.id }} - Nombre: {{alumno.nombre}} - Cursos: {{alumno.cursos}}</div>
     </li>
 </ol>
 </h1>
 
 
-<div class="contCards" *ngIf="">
-  <div class="card card-1" style="width: 18rem">
-    <img src="../../../assets/images/1.png" class="card-img-top" alt="..." />
+<div class="contCards" >
+  <div class="card card-1" style="width: 18rem" *ngFor="let curso of cursos">
+    <img src="{{curso.img}}" alt="">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
+      <h5 class="card-title">{{curso.nombre}}</h5>
       <p class="card-text">
         Some quick example text to build on the card title and make up the bulk
         of the card's content.
       </p>
-      <a href="#" class="btn btn-dark">Go somewhere</a>
+      <a href="#" class="btn btn-dark">Go start !</a>
     </div>
   </div>
 
-  <div class="card card-2" style="width: 18rem">
-    <img src="../../../assets/images/2.png" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-dark">Go somewhere</a>
-    </div>
-  </div>
-
-  <div class="card card-3" style="width: 18rem">
-    <img src="../../../assets/images/3.png" class="card-img-top" alt="..." />
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <a href="#" class="btn btn-dark">Go somewhere</a>
-    </div>
-  </div>
 </div>
