@@ -1,4 +1,21 @@
-<div class="contCards">
+<div [ngClass]="'contNombre'">
+ <p class="capturaNombre"> Introduce tu nombre </p>
+ <input type="text" #alumno>
+ <button (click)="llamaNombre(alumno.value)" class="boton">Go!</button>
+</div>
+
+
+<h1>
+  <div [ngClass]=" 'alumno '"> Bienvenid@ ! {{alumno.value | titlecase}}</div>
+  <ol [ngClass]="'lista'">
+    <li *ngFor="let nombre of listaNombres">
+      <div [ngClass]=" 'items' ">Nombre: {{ nombre.nombre }} - Edad: {{nombre.edad}}</div>
+    </li>
+</ol>
+</h1>
+
+
+<div class="contCards" *ngIf="">
   <div class="card card-1" style="width: 18rem">
     <img src="../../../assets/images/1.png" class="card-img-top" alt="..." />
     <div class="card-body">

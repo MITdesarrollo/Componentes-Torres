@@ -1,3 +1,41 @@
+.contNombre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    color: antiquewhite;
+    height: 5rem;
+}
+.capturaNombre{
+    margin-bottom: 0;
+    border-bottom: 1px solid #5CE1E6;
+}
+
+.boton{
+    padding: .3rem;
+    border-radius: 5px;
+    border: 1px solid #5CE1E6;
+    color: #5CE1E6;
+}
+.alumno{
+    margin-left: 2rem;
+    background: linear-gradient(#5CE1E6, #FFDE59);
+    border-radius: 5px;
+    width: 30rem;
+}
+
+.lista{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.items{
+    color: white;
+}
+
+/* Style Cards*/
+
 .contCards {
     display: grid;
     grid-column: repeat(4, auto);
