@@ -1,15 +1,3 @@
-.contNombre{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-around;
-    color: antiquewhite;
-    height: 5rem;
-}
-.capturaNombre{
-    margin-bottom: 0;
-    border-bottom: 1px solid #5CE1E6;
-}
 
 .boton{
     padding: .3rem .4rem;

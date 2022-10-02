@@ -5,6 +5,10 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './componentes/toolbar/toolbar.component';
 import { NavBarComponent } from './componentes/nav-bar/nav-bar.component';
 import { StudentsComponent } from './componentes/students/students.component';
+import { FormularioComponent } from './componentes/formulario/formulario.component';
+import { TablasComponent } from './componentes/tablas/tablas.component';
+import { PadreComponent } from './componentes/padre/padre.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,10 +16,16 @@ import { StudentsComponent } from './componentes/students/students.component';
     AppComponent,
     ToolbarComponent,
     NavBarComponent,
-    StudentsComponent
+    StudentsComponent,
+    FormularioComponent,
+    TablasComponent,
+    PadreComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

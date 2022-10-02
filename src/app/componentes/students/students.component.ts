@@ -17,22 +17,7 @@ export class StudentsComponent implements OnInit {
       nombre: 'Lilo',
       cursos: ['React', ' Angular']
     },
-    {
-      id: 2,
-      nombre: 'Lolo',
-      cursos: ['React', ' Angular', ' js']
-    },
-    {
-      id: 3,
-      nombre: 'Lula',
-      cursos: ['React']
-    },
-    {
-      id: 4,
-      nombre: 'Lalo',
-      cursos: ['Js', ' Angular']
-    },
-
+  
   ];
   public cursos: Array<Curso> =[
     {
