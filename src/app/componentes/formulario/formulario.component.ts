@@ -34,6 +34,7 @@ export class FormularioComponent implements OnInit {
   submitForm(): void{
     console.log(this.formulario.value);
     this.addUsuario.emit(this.formulario.value);
+    this.formulario.reset()
   }
   get cursos(): FormArray {
     return this.formulario.get('cursos') as FormArray;
@@ -42,5 +43,7 @@ export class FormularioComponent implements OnInit {
   agregarCurso(): void{
    this.cursos.push(new FormControl());
   }
+
+  
 
 }
