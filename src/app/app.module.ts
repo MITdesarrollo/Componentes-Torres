@@ -9,6 +9,9 @@ import { FormularioComponent } from './componentes/formulario/formulario.compone
 import { TablasComponent } from './componentes/tablas/tablas.component';
 import { PadreComponent } from './componentes/padre/padre.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { CardsComponent } from './componentes/cards/cards.component';
 
 
 @NgModule({
@@ -19,12 +22,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     StudentsComponent,
     FormularioComponent,
     TablasComponent,
-    PadreComponent
+    PadreComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
     
   ],
   providers: [],
