@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 })
 export class BooleanoEstiloDirective {
 
-   @Input('appBooleanoEstilo') inscripcionAbierta!: boolean
+  @Input('appBooleanoEstilo') inscripcionAbierta!: boolean
 
 
   constructor(
@@ -18,13 +18,12 @@ export class BooleanoEstiloDirective {
   ) { }
 
 
-  ngOnInit(): void{
-   
+  ngOnInit(): void {
+
     this.renderer.setStyle(this.elemento.nativeElement, 'padding', '5px 10px 5px 10px')
     this.renderer.setStyle(this.elemento.nativeElement, 'border-radius', '40px')
     this.renderer.setStyle(this.elemento.nativeElement, 'color', '#ffffff')
     this.renderer.setStyle(this.elemento.nativeElement, 'background-color',
-    this.inscripcionAbierta ? '#5CE1E6' : '#FFDE59')
-  }  
-
+      this.inscripcionAbierta ? '#5CE1E6' : '#FFDE59')
+  }
 }

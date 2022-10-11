@@ -10,19 +10,17 @@ export class TablasAlumnosComponent implements OnInit {
 
 
   @Input() usuarios: any[] = [];
+
   
-  /* columnas: string[] = ['id','nombre','apellido','curso','acciones']
-  
-  dataSource: MatTableDataSource<any> = new MatTableDataSource<any>(this.usuarios);  */
-  constructor() { 
+  constructor() {
 
   }
 
   ngOnInit(): void {
   }
 
-  deleteItem(el: number){
-  this.usuarios = this.usuarios.filter(item => item.id !== el)
+  deleteItem(el: number) {
+    this.usuarios = this.usuarios.filter(item => item.id !== el)
   }
 
 }
