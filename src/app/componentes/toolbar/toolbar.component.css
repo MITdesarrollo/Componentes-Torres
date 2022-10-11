@@ -16,6 +16,7 @@ h1 {
     background: linear-gradient(#5CE1E6, #FFDE59);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    font-size: 2rem;
 }
 
 img {
@@ -28,6 +29,7 @@ img {
     border-radius: 5px;
     background: linear-gradient(#5CE1E6, #FFDE59);
     padding: .5rem;
+    color: white;
 }
 
 .loginUsuario {

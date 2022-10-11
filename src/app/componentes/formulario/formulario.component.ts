@@ -32,7 +32,6 @@ export class FormularioComponent implements OnInit {
 
   //declaracion metodo submit
   submitForm(): void{
-    console.log(this.formulario.value);
     this.addUsuario.emit(this.formulario.value);
     this.formulario.reset()
   }

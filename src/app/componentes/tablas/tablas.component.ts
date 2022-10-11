@@ -1,3 +1,4 @@
+import { HtmlParser } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from 'src/app/models/curso';
@@ -8,51 +9,54 @@ import { Curso } from 'src/app/models/curso';
   styleUrls: ['./tablas.component.css']
 })
 export class TablasComponent implements OnInit {
-
+  filtro: string = '';
   cursos: Curso[] = [
     {
-      nombre: 'Angular',
-      comision: '15',
-      profesor: 'Lolo',
-      fechaInicio: new Date(2022, 0,1),
-      fechaFin: new Date (2022,2,28),
-      inscripcionAbierta: false,
-      img: 'src/assets/images/1.png'
-    },
-    {
-      nombre: 'React js',
-      comision: '25',
-      profesor: 'Lalo',
-      fechaInicio: new Date(2022, 2,1),
-      fechaFin: new Date (2022,3,28),
-      inscripcionAbierta: false,
-      img: 'src/assets/images/2.png'
-    },
-    {
-      nombre: 'Python',
-      comision: '35',
-      profesor: 'Lula',
-      fechaInicio: new Date(2022, 9,1),
-      fechaFin: new Date (2022,10,28),
-      inscripcionAbierta: true,
-      img: 'src/assets/images/3.png'
-    },
-    {
-      nombre: 'JavaScript',
-      comision: '45',
-      profesor: 'Lolo',
-      fechaInicio: new Date(2022,10,1),
-      fechaFin: new Date (2022,11,28),
-      inscripcionAbierta: true,
-      img:'src/assets/images/4.png'
-    }
-  ]
-
-  columnas: string[] = ['nombre','comision','profesor','fechaInicio','fechaFin','inscripcionAbierta','acciones']
+     nombre: 'Angular',
+     comision: '32310',
+     profesor: 'Keven',
+     fechaInicio: new Date(2022, 0, 1),
+     fechaFin: new Date(2022, 1, 28),
+     inscripcionAbierta: true,
+     img:'/assets/images/1.png'
+   },
+   {
+     nombre: 'React JS',
+     comision: '32320',
+     profesor: 'Fernando',
+     fechaInicio: new Date(2022, 2, 1),
+     fechaFin: new Date(2022, 3, 30),
+     inscripcionAbierta: true,
+     img:'/assets/images/2.png'
+   },
+   {
+     nombre: 'JavaScript',
+     comision: '33310',
+     profesor: 'Arturo',
+     fechaInicio: new Date(2022, 1, 1),
+     fechaFin: new Date(2022, 3, 28),
+     inscripcionAbierta: false,
+     img:'/assets/images/3.png'
+   },
+   {
+     nombre: 'Python',
+     comision: '34310',
+     profesor: 'Lautaro',
+     fechaInicio: new Date(2022, 5, 1),
+     fechaFin: new Date(2022, 6, 30),
+     inscripcionAbierta: false,
+     img:'/assets/images/4.png'
+   },
+   ];
+  
+  columnas: string[] = ['nombre','comision','profesor','fechaInicio','fechaFin','inscripcionAbierta']
   
   dataSource: MatTableDataSource<Curso> = new MatTableDataSource<Curso>(this.cursos);
   
-  constructor() { }
+  constructor() { 
+    
+    
+  }
 
   ngOnInit(): void {
   }
@@ -60,10 +64,27 @@ export class TablasComponent implements OnInit {
 
   /* metodos filtrado tablas */
 
-  filtrarCurso(){
+  filtrarCurso(event: Event){
+    const valorObtenido = (event.target as HTMLInputElement).value;
 
-  }
-  filtrarComision(){
+    /* columna en especifico , filterPredicate lleva dos parametros*/
+    this.dataSource.filterPredicate = function(curso:Curso, filtro: string){
+      return curso.nombre.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
+    };
 
+    this.dataSource.filter = valorObtenido.trim().toLowerCase();
   }
+  filtrarComision(event: Event){
+    const valorObtenido = (event.target as HTMLInputElement).value;
+    
+    
+    this.dataSource.filterPredicate = function(curso:Curso, filtro: string){
+      return curso.comision.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
+    };
+
+    this.dataSource.filter = valorObtenido.trim().toLowerCase();
+  }
+
+  
+  
 }

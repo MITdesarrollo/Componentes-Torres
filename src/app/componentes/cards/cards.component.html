@@ -1,1 +1,25 @@
-<p>cards works!</p>
+<!-- por ahora no esta en uso, por que al final lo estoy usando dentro de el componente tabla, para usar un unico fltro para la tabla y las card a la ves -->
+
+
+<h1>Lista de cursos</h1>
+<div class="row">
+<div *ngFor="let curso of cursos" class="col-md-3">
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ curso.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="curso.img" alt="cards">
+
+    <mat-card-content>
+        <p>Disctado por {{ curso.profesor }}</p>
+        <p>Inicial el {{ curso.fechaInicio | date: 'dd/MM/YYYY' }}</p>
+        <p>Finaliza el {{ curso.fechaFin | date: 'dd/MM/YYYY' }}</p>
+        <p [appBooleanoEstilo]="curso.inscripcionAbierta">{{ curso.inscripcionAbierta | booleanoTexto: 'Matricula abierta' : 'Matricula cerrada' | uppercase }}</p>
+    </mat-card-content>
+
+    
+</mat-card>
+</div>
+</div>

@@ -12,6 +12,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { CardsComponent } from './componentes/cards/cards.component';
+import { BooleanoTextoPipe } from './pipes/booleano-texto.pipe';
+import { BooleanoEstiloDirective } from './directives/booleano-estilo.directive';
+import { FiltroCursosPipe } from './pipes/filtro-cursos.pipe';
+import { TablasAlumnosComponent } from './componentes/tablas-alumnos/tablas-alumnos.component';
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { CardsComponent } from './componentes/cards/cards.component';
     FormularioComponent,
     TablasComponent,
     PadreComponent,
-    CardsComponent
+    CardsComponent,
+    BooleanoTextoPipe,
+    BooleanoEstiloDirective,
+    FiltroCursosPipe,
+    TablasAlumnosComponent
   ],
   imports: [
     BrowserModule,
