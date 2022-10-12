@@ -16,7 +16,7 @@ import { BooleanoTextoPipe } from './pipes/booleano-texto.pipe';
 import { BooleanoEstiloDirective } from './directives/booleano-estilo.directive';
 import { FiltroCursosPipe } from './pipes/filtro-cursos.pipe';
 import { TablasAlumnosComponent } from './componentes/tablas-alumnos/tablas-alumnos.component';
-import { ApellidoPipe } from './pipes/apellido.pipe';
+import { ApellidoPipe } from './pipes/nombreYapellido.pipe';
 import { TitleEstiloDirective } from './directives/title-estilo.directive';
 
 

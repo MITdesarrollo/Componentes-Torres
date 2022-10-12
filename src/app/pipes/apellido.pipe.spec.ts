@@ -1,4 +1,4 @@
-import { ApellidoPipe } from './apellido.pipe';
+import { ApellidoPipe } from './nombreYapellido.pipe';
 
 describe('ApellidoPipe', () => {
   it('create an instance', () => {

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-tablas-alumnos',
@@ -9,18 +10,16 @@ import { MatTableDataSource } from '@angular/material/table';
 export class TablasAlumnosComponent implements OnInit {
 
 
-  @Input() usuarios: any[] = [];
+  @Input() usuarios: Usuario[] = [];
 
   
-  constructor() {
-
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }
-
+  
+ // delete de la fila por id
   deleteItem(el: number) {
     this.usuarios = this.usuarios.filter(item => item.id !== el)
   }
-
 }

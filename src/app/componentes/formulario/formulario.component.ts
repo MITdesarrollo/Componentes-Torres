@@ -19,8 +19,6 @@ export class FormularioComponent implements OnInit {
     cursos: new FormArray([new FormControl()])
   });
 
-
-
   constructor(
     //firma del constructor, parametros//
 
@@ -35,6 +33,7 @@ export class FormularioComponent implements OnInit {
     this.addUsuario.emit(this.formulario.value);
     this.formulario.reset()
   }
+  
   get cursos(): FormArray {
     return this.formulario.get('cursos') as FormArray;
   }
