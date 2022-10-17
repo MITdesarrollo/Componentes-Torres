@@ -23,6 +23,7 @@ export class TablasComponent implements OnInit {
 
   ngOnInit(): void {
     this.cursos = this.cursoService.obtenerCursos();
+    console.log(this.cursos);
   }
 
 
