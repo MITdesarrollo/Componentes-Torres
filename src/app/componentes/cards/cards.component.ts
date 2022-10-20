@@ -8,7 +8,7 @@ import { Curso } from 'src/app/models/curso';
 })
 export class CardsComponent implements OnInit {
   
-  @Input() cursos: Curso[] = []
+  /* @Input() cursos: Curso[] = [] */
     
   constructor() { }
 

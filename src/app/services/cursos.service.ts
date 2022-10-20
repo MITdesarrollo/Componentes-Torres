@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
 import { Curso } from '../models/curso';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { Curso } from '../models/curso';
 export class CursosService {
  private cursos: Curso[] = [
     {
+    id:1,
      nombre: 'Angular',
      comision: '32310',
      profesor: 'Keven',
@@ -16,6 +18,7 @@ export class CursosService {
      img:'/assets/images/1.png'
    },
    {
+    id:2,
      nombre: 'React JS',
      comision: '32320',
      profesor: 'Fernando',
@@ -25,6 +28,7 @@ export class CursosService {
      img:'/assets/images/2.png'
    },
    {
+    id:3,
      nombre: 'JavaScript',
      comision: '33310',
      profesor: 'Arturo',
@@ -34,6 +38,7 @@ export class CursosService {
      img:'/assets/images/3.png'
    },
    {
+    id:4,
      nombre: 'Python',
      comision: '34310',
      profesor: 'Lautaro',
@@ -43,12 +48,48 @@ export class CursosService {
      img:'/assets/images/4.png'
    },
    ];
-  constructor() { }
 
-  obtenerCursos(): Curso[]{
-    return this.cursos; 
-  }
-  agregarCurso(curso: Curso){
+  private cursoSubject: BehaviorSubject<Curso[]>  
 
-  }
+  constructor() {
+    this.cursoSubject = new BehaviorSubject(this.cursos)
+
+
+  /* promise */
+  /* obtenerCursosPromise(): Promise<Curso[] | any> {
+   return new Promise((resolve, reject) => {
+    if(this.cursos.length > 0){
+      resolve(this.cursos)
+    } else{
+      reject({
+        codigo: 0,
+        mensaje: 'No hay cursos disponibles'
+      })
+    }
+   });
+  } 
+  */
+}
+
+/* observable */
+ obtenerCursos(): Observable<Curso[]>{
+  return this.cursoSubject.asObservable();
+ }
+
+ obtenerCurso(id: number): Observable<Curso[]>{
+  return this.obtenerCursos().pipe(
+    map((cursos: Curso[]) => cursos.filter((curso: Curso)=> curso.id === id))
+  )
+ }
+
+ agregarCurso(curso: Curso){
+  this.cursos.push(curso);
+  this.cursoSubject.next(this.cursos);
+}
+ editarCurso(curso: Curso ){
+ 
+ }
+ eliminarCurso(id: number){
+ 
+ }
 }

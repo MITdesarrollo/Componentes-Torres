@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from 'src/app/models/usuario';
+import { FormularioService } from 'src/app/services/formulario.service';
 
 @Component({
   selector: 'app-tablas-alumnos',
@@ -10,14 +11,27 @@ import { Usuario } from 'src/app/models/usuario';
 export class TablasAlumnosComponent implements OnInit {
 
 
-  @Input() usuarios: Usuario[] = [];
+  usuarios!: Usuario[];
 
   
-  constructor() {}
+  constructor(
+    private usuarioData: FormularioService
+  ) {}
 
   ngOnInit(): void {
+    this.usuarios = this.usuarioData.usuariosData();
   }
   
+  // funcion para asignarle un id a evento recibido y pushearlo al array que recibe el hijo
+  agregarUsuario($event: any): void{
+    let i:number= 0;
+     for(let item of this.usuarios){
+      i++
+     }
+    $event.id = i
+    this.usuarios.push($event)  
+  }
+
  // delete de la fila por id
   deleteItem(el: number) {
     this.usuarios = this.usuarios.filter(item => item.id !== el)

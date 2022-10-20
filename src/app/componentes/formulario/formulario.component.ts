@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Usuario } from 'src/app/models/usuario';
+import { FormularioService } from 'src/app/services/formulario.service';
 
 @Component({
   selector: 'app-formulario',
@@ -8,9 +10,10 @@ import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class FormularioComponent implements OnInit {
 
-  @Output() addUsuario: EventEmitter<any> = new EventEmitter<any>();
+  
   //vars
-
+  usuarios!: Usuario[];
+  
   formulario = this.formBuilder.group({
     nombre: ['', [Validators.required]],
     apellido: ['', [Validators.required]],
@@ -21,16 +24,29 @@ export class FormularioComponent implements OnInit {
 
   constructor(
     //firma del constructor, parametros//
-
+    private formService: FormularioService,
     private formBuilder: FormBuilder
-  ) { }
+  ) { 
+
+
+  }
 
   ngOnInit(): void {
+    this.usuarios = this.formService.usuariosData();
   }
+
+
+  agregarUsuario($event: any): void{
+     let i:number= 0;
+     for(let item of this.usuarios){ i++ } 
+     $event.id = i
+     this.usuarios.push($event) 
+    }
+    
 
   //declaracion metodo submit
   submitForm(): void{
-    this.addUsuario.emit(this.formulario.value);
+    this.agregarUsuario(this.formulario.value);
     this.formulario.reset()
   }
   
@@ -41,6 +57,8 @@ export class FormularioComponent implements OnInit {
   agregarCurso(): void{
    this.cursos.push(new FormControl());
   }
+  
+
 
   
 

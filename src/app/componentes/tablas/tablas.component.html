@@ -1,37 +1,36 @@
 <div class="row">
     <mat-form-field class="col-md-6">
         <mat-label>Filtrar por nombre del curso</mat-label>
-        <input type="text" matInput (keyup)="filtrarCurso($event)" [(ngModel)]="filtro" />
+        <input type="text" matInput (keyup)="filtrarCurso($event)"/>
     </mat-form-field>
-
-    <mat-form-field class="col-md-6">
+   <!--  <mat-form-field class="col-md-6">
         <mat-label>Filtrar por numero de comision</mat-label>
         <input type="text" matInput (keyup)="filtrarComision($event)" [(ngModel)]="filtro" />
-    </mat-form-field>
+    </mat-form-field> -->
 </div>
 <!-- tabla cursos  -->
-<div class="cont">
+<!-- <div class="cont">
     <div class="row">
         <table mat-table [dataSource]="dataSource" class="col-md-12">
-            <!-- 'nombre' -->
+            
             <ng-container matColumnDef="nombre">
                 <th mat-header-cell *matHeaderCellDef>Nombre</th>
                 <td mat-cell *matCellDef="let curso">{{ curso.nombre | uppercase }}</td>
             </ng-container>
 
-            <!-- 'comision' -->
+           
             <ng-container matColumnDef="comision">
                 <th mat-header-cell *matHeaderCellDef>Comision</th>
                 <td mat-cell *matCellDef="let curso">{{ curso.comision }}</td>
             </ng-container>
 
-            <!-- 'profesor' -->
+            
             <ng-container matColumnDef="profesor">
                 <th mat-header-cell *matHeaderCellDef>Profesor</th>
                 <td mat-cell *matCellDef="let curso">{{ curso.profesor }}</td>
             </ng-container>
 
-            <!-- 'fechaInicio' -->
+            
             <ng-container matColumnDef="fechaInicio">
                 <th mat-header-cell *matHeaderCellDef>Inicia</th>
                 <td mat-cell *matCellDef="let curso">
@@ -39,7 +38,7 @@
                 </td>
             </ng-container>
 
-            <!-- 'fechaFin' -->
+           
             <ng-container matColumnDef="fechaFin">
                 <th mat-header-cell *matHeaderCellDef>Finaliza</th>
                 <td mat-cell *matCellDef="let curso">
@@ -47,7 +46,7 @@
                 </td>
             </ng-container>
 
-            <!-- 'inscripcionAbierta' -->
+            
             <ng-container matColumnDef="inscripcionAbierta">
                 <th mat-header-cell *matHeaderCellDef>Inscripcion Abierta</th>
                 <td mat-cell *matCellDef="let curso">
@@ -61,11 +60,13 @@
             <tr mat-row *matRowDef="let row; columns: columnas"></tr>
         </table>
     </div>
-</div>
+</div> -->
+
+
 <!-- cards cursos -->
 <div class="cont-2">
     <div class="row">
-        <div *ngFor="let curso of cursos | filtroCursos: filtro" class="col-md-3">
+        <div *ngFor="let curso of cursos$ | async " class="col-md-3">
             <mat-card>
                 <mat-card-header>
                     <mat-card-title>{{ curso.nombre }}</mat-card-title>
@@ -81,6 +82,15 @@
                     <p [appBooleanoEstilo]="curso.inscripcionAbierta">{{curso.inscripcionAbierta | booleanoTexto: "Matricula abierta":"Matricula cerrada" | uppercase }}
                     </p>
                 </mat-card-content>
+
+                <!-- <mat-card-actions>
+                    <button mat-icon-button>Editar
+                          <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button>Borrar
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions> -->
             </mat-card>
         </div>
     </div>

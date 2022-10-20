@@ -7,7 +7,6 @@ import { NavBarComponent } from './componentes/nav-bar/nav-bar.component';
 
 import { FormularioComponent } from './componentes/formulario/formulario.component';
 import { TablasComponent } from './componentes/tablas/tablas.component';
-import { PadreComponent } from './componentes/padre-menu/padre.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -18,6 +17,8 @@ import { FiltroCursosPipe } from './pipes/filtro-cursos.pipe';
 import { TablasAlumnosComponent } from './componentes/tablas-alumnos/tablas-alumnos.component';
 import { ApellidoPipe } from './pipes/nombreYapellido.pipe';
 import { TitleEstiloDirective } from './directives/title-estilo.directive';
+import { AppRoutingModule } from './app.routing.module';
+import { AgregarCursoComponent } from './componentes/agregar-curso/agregar-curso.component';
 
 
 @NgModule({
@@ -27,21 +28,23 @@ import { TitleEstiloDirective } from './directives/title-estilo.directive';
     NavBarComponent,
     FormularioComponent,
     TablasComponent,
-    PadreComponent,
+   
     CardsComponent,
     BooleanoTextoPipe,
     BooleanoEstiloDirective,
     FiltroCursosPipe,
     TablasAlumnosComponent,
     ApellidoPipe,
-    TitleEstiloDirective
+    TitleEstiloDirective,
+    AgregarCursoComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
     
   ],
   providers: [],

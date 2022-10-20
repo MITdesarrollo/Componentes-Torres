@@ -6,8 +6,9 @@ import {MatButtonModule} from  '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon'
-
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
     imports:[
@@ -16,7 +17,10 @@ import {MatIconModule} from '@angular/material/icon'
         MatButtonModule,
         MatFormFieldModule,
         MatInputModule,
-        MatIconModule
+        MatIconModule,
+        MatDatepickerModule,
+        MatSlideToggleModule,
+        MatNativeDateModule
 
     ],
     exports:[
@@ -25,7 +29,10 @@ import {MatIconModule} from '@angular/material/icon'
         MatButtonModule,
         MatFormFieldModule,
         MatInputModule,
-        MatIconModule
+        MatIconModule,
+        MatDatepickerModule,
+        MatSlideToggleModule,
+        MatNativeDateModule
     ]
 })
 
