@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
-import { FormularioService } from 'src/app/services/formulario.service';
+import { AlumnoService } from 'src/app/services/alumno.service';
 
 @Component({
   selector: 'app-formulario',
@@ -10,7 +10,7 @@ import { FormularioService } from 'src/app/services/formulario.service';
 })
 export class FormularioComponent implements OnInit {
 
-  
+  promesa: any;
   //vars
   usuarios!: Usuario[];
   
@@ -24,17 +24,23 @@ export class FormularioComponent implements OnInit {
 
   constructor(
     //firma del constructor, parametros//
-    private formService: FormularioService,
+    private alumnoService: AlumnoService,
     private formBuilder: FormBuilder
   ) { 
-
-
+    this.promesa = alumnoService.obtenerUsuariosPromise()
+     .then((valor: Usuario[]) => {
+       console.log('Desde el promise', valor);
+       this.usuarios = valor;
+    }).catch((error: any) => {
+       console.error(error);
+    });
   }
 
   ngOnInit(): void {
-    this.usuarios = this.formService.usuariosData();
+    this.usuarios = this.alumnoService.usuariosData();
   }
-
+  
+  
 
   agregarUsuario($event: any): void{
      let i:number= 0;

@@ -48,32 +48,16 @@ export class CursosService {
      img:'/assets/images/4.png'
    },
    ];
-
-  private cursoSubject: BehaviorSubject<Curso[]>  
+  
+  private cursoSubject$: BehaviorSubject<Curso[]>  
 
   constructor() {
-    this.cursoSubject = new BehaviorSubject(this.cursos)
-
-
-  /* promise */
-  /* obtenerCursosPromise(): Promise<Curso[] | any> {
-   return new Promise((resolve, reject) => {
-    if(this.cursos.length > 0){
-      resolve(this.cursos)
-    } else{
-      reject({
-        codigo: 0,
-        mensaje: 'No hay cursos disponibles'
-      })
-    }
-   });
-  } 
-  */
+    this.cursoSubject$ = new BehaviorSubject(this.cursos)
 }
 
 /* observable */
  obtenerCursos(): Observable<Curso[]>{
-  return this.cursoSubject.asObservable();
+  return this.cursoSubject$.asObservable();
  }
 
  obtenerCurso(id: number): Observable<Curso[]>{
@@ -84,12 +68,12 @@ export class CursosService {
 
  agregarCurso(curso: Curso){
   this.cursos.push(curso);
-  this.cursoSubject.next(this.cursos);
+  this.cursoSubject$.next(this.cursos);
 }
  editarCurso(curso: Curso ){
  
  }
- eliminarCurso(id: number){
- 
- }
+/*  eliminarCurso(id: number){
+  this.cursos = this.cursoSubject$.
+ } */
 }

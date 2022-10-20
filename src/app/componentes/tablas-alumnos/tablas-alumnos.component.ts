@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from 'src/app/models/usuario';
-import { FormularioService } from 'src/app/services/formulario.service';
+import { AlumnoService } from 'src/app/services/alumno.service';
 
 @Component({
   selector: 'app-tablas-alumnos',
@@ -15,7 +15,7 @@ export class TablasAlumnosComponent implements OnInit {
 
   
   constructor(
-    private usuarioData: FormularioService
+    private usuarioData: AlumnoService
   ) {}
 
   ngOnInit(): void {

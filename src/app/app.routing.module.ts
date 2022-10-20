@@ -8,17 +8,18 @@ import { TablasComponent } from "./componentes/tablas/tablas.component";
 const rutas: Routes = [
     /* ruta-componente */
     
-    {path: 'cursos', children:[
+    
       {path:'lista', component: TablasComponent},
       {path:'nuevo', component: AgregarCursoComponent},
-      {path: 'alumnos',component: FormularioComponent}
-    ]}
+      {path:'alumnos',component: FormularioComponent}
+   
 ]
 
 
 @NgModule({
      imports:[
         RouterModule.forRoot(rutas)
+
      ],
      exports:[
         RouterModule

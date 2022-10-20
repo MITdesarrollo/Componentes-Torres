@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FormularioService } from './formulario.service';
+import { FormularioService } from './alumno.service';
 
 describe('FormularioService', () => {
   let service: FormularioService;
