@@ -1,7 +1,7 @@
 
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable , Subscription} from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Curso } from 'src/app/models/curso';
 import { CursosService } from 'src/app/services/cursos.service';
 
@@ -13,29 +13,37 @@ import { CursosService } from 'src/app/services/cursos.service';
 })
 export class TablasComponent implements OnInit {
   filtro: string = '';
-  cursos!: Curso[]; 
+  cursos!: Curso[];
   cursos$!: Observable<Curso[]>
   cursosSubscription!: Subscription;
 
 
   dataSource!: MatTableDataSource<Curso>
-  columnas: string[] = ['nombre','comision','profesor','fechaInicio','fechaFin','inscripcionAbierta',];
- 
+  columnas: string[] = ['nombre', 'comision', 'profesor', 'fechaInicio', 'fechaFin', 'inscripcionAbierta',];
+
   constructor(
-     private cursosService: CursosService 
-       
-    ) { 
-    
-    }
-    
-  ngOnInit(): void {
-     this.cursos$ = this.cursosService.obtenerCursos();
-     this.cursosSubscription = this.cursos$.subscribe(cursos => this.cursos = cursos)
+    private cursosService: CursosService
+
+  ) {
+
   }
 
-  ngOnDestroy(): void{
+  ngOnInit(): void {
+    this.cursos$ = this.cursosService.obtenerCursos();
+    this.cursosSubscription = this.cursos$.subscribe(cursos => this.cursos = cursos)
+  }
+
+  ngOnDestroy(): void {
     this.cursosSubscription.unsubscribe();
- }
+  }
+
+  editarCurso() {
+
+  }
+  eliminarCurso(id: number) {
+    this.cursosService.eliminarCurso(id)
+  }
+
 
 
   /* metodos filtrado tablas */

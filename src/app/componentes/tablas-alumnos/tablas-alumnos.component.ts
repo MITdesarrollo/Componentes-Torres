@@ -33,7 +33,7 @@ export class TablasAlumnosComponent implements OnInit {
   }
 
  // delete de la fila por id
-  deleteItem(el: number) {
-    this.usuarios = this.usuarios.filter(item => item.id !== el)
+  deleteItem(i: number) {
+    this.usuarios = this.usuarios.filter(item => item.id !== i)
   }
 }

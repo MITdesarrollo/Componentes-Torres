@@ -10,7 +10,8 @@ import { CursosService } from 'src/app/services/cursos.service';
   styleUrls: ['./agregar-curso.component.css']
 })
 export class AgregarCursoComponent implements OnInit {
-
+  
+  
   formulario: FormGroup;
   constructor(
     private cursoService: CursosService,

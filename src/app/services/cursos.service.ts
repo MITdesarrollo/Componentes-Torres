@@ -71,9 +71,18 @@ export class CursosService {
   this.cursoSubject$.next(this.cursos);
 }
  editarCurso(curso: Curso ){
- 
+   let indice =  this.cursos.findIndex((c: Curso)=> c.id === curso.id);
+   if(indice > -1){
+    this.cursos[indice] = curso;
+   }
+   this.cursoSubject$.next(this.cursos);
  }
-/*  eliminarCurso(id: number){
-  this.cursos = this.cursoSubject$.
- } */
+ eliminarCurso(id: number){
+  let indice = this.cursos.findIndex((c: Curso) => c.id === id);
+
+  if(indice > -1){
+    this.cursos.splice(indice, 1);
+  }
+  this.cursoSubject$.next(this.cursos);}
+ 
 }
