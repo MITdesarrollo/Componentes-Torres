@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Usuario } from '../models/usuario';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class AlumnoService {
 
   constructor() { }
   
-  obtenerUsuariosPromise(): Promise<Usuario[] | any>{
+  /* obtenerUsuariosPromise(): Promise<Usuario[] | any>{
     return new Promise((resolve, reject) => {
       if(this.usuarios.length > 0){
         resolve(this.usuarios);
@@ -24,10 +25,10 @@ export class AlumnoService {
       }
     });
   }
+ */
 
 
-
-  usuariosData(): Usuario[]{
-    return this.usuarios;
+  usuariosData(): Observable<Usuario[]>{
+    return of(this.usuarios)
   }
 }

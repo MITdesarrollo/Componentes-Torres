@@ -1,27 +1,32 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { AlumnoService } from 'src/app/services/alumno.service';
 
 @Component({
-  selector: 'app-tablas-alumnos',
-  templateUrl: './tablas-alumnos.component.html',
-  styleUrls: ['./tablas-alumnos.component.css']
+  selector: 'app-lista-alumnos',
+  templateUrl: './lista-alumnos.component.html',
+  styleUrls: ['./lista-alumnos.component.css']
 })
-export class TablasAlumnosComponent implements OnInit {
+export class TablasAlumnosComponent implements OnInit, OnDestroy{
 
 
   usuarios!: Usuario[];
-
+  usuariosSubcription!: Subscription
   
   constructor(
     private usuarioData: AlumnoService
   ) {}
 
   ngOnInit(): void {
-    this.usuarios = this.usuarioData.usuariosData();
+    this.usuarioData.usuariosData().subscribe(usuario => this.usuarios = usuario);
   }
-  
+  ngOnDestroy(): void{
+    if(this.usuariosSubcription){
+      this.usuariosSubcription.unsubscribe();
+    }
+}
   // funcion para asignarle un id a evento recibido y pushearlo al array que recibe el hijo
   agregarUsuario($event: any): void{
     let i:number= 0;

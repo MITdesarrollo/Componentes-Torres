@@ -14,11 +14,13 @@ import { CardsComponent } from './componentes/cards/cards.component';
 import { BooleanoTextoPipe } from './pipes/booleano-texto.pipe';
 import { BooleanoEstiloDirective } from './directives/booleano-estilo.directive';
 import { FiltroCursosPipe } from './pipes/filtro-cursos.pipe';
-import { TablasAlumnosComponent } from './componentes/tablas-alumnos/tablas-alumnos.component';
+import { TablasAlumnosComponent } from './componentes/lista-alumnos/lista-alumnos.component';
 import { ApellidoPipe } from './pipes/nombreYapellido.pipe';
 import { TitleEstiloDirective } from './directives/title-estilo.directive';
 import { AppRoutingModule } from './app.routing.module';
 import { AgregarCursoComponent } from './componentes/agregar-curso/agregar-curso.component';
+import { EditarCursoComponent } from './componentes/editar-curso/editar-curso.component';
+import { DetalleCursoComponent } from './componentes/detalle-curso/detalle-curso.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { AgregarCursoComponent } from './componentes/agregar-curso/agregar-curso
     TablasAlumnosComponent,
     ApellidoPipe,
     TitleEstiloDirective,
-    AgregarCursoComponent
+    AgregarCursoComponent,
+    EditarCursoComponent,
+    DetalleCursoComponent
   ],
   imports: [
     BrowserModule,

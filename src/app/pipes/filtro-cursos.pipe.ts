@@ -6,7 +6,7 @@ import { Curso } from '../models/curso';
 })
 export class FiltroCursosPipe implements PipeTransform {
 
-  transform(cursos: Curso[] , filtro: string): Curso[] | null{
+  transform(cursos: Curso[], filtro: string): Curso[] {
   return cursos.filter(
         curso => curso.nombre.toLocaleLowerCase().includes(filtro.toLocaleLowerCase()) || 
         curso.comision.includes(filtro) ||

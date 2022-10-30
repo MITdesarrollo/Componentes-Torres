@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, OnDestroy } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 import { AlumnoService } from 'src/app/services/alumno.service';
 
@@ -8,11 +9,12 @@ import { AlumnoService } from 'src/app/services/alumno.service';
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
-export class FormularioComponent implements OnInit {
+export class FormularioComponent implements OnInit, OnDestroy {
 
   promesa: any;
   //vars
   usuarios!: Usuario[];
+  usuariosSubcription!: Subscription
   
   formulario = this.formBuilder.group({
     nombre: ['', [Validators.required]],
@@ -26,20 +28,17 @@ export class FormularioComponent implements OnInit {
     //firma del constructor, parametros//
     private alumnoService: AlumnoService,
     private formBuilder: FormBuilder
-  ) { 
-    this.promesa = alumnoService.obtenerUsuariosPromise()
-     .then((valor: Usuario[]) => {
-       console.log('Desde el promise', valor);
-       this.usuarios = valor;
-    }).catch((error: any) => {
-       console.error(error);
-    });
-  }
+  ) { } 
 
   ngOnInit(): void {
-    this.usuarios = this.alumnoService.usuariosData();
+   this.usuariosSubcription = this.alumnoService.usuariosData().subscribe(alumno => this.usuarios = alumno);
   }
   
+  ngOnDestroy(): void{
+      if(this.usuariosSubcription){
+        this.usuariosSubcription.unsubscribe();
+      }
+  }
   
 
   agregarUsuario($event: any): void{
